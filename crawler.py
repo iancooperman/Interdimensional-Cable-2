@@ -5,7 +5,7 @@ import json
 
 class Crawler:
     def __init__(self, subreddit_name: str, client_id: str, client_secret: str, user_agent: str):
-        reddit = Reddit(client_id, client_secret, user_agent)
+        reddit = Reddit(client_id=client_id, client_secret=client_secret, user_agent=user_agent)
         self._subreddit = reddit.subreddit(subreddit_name)
 
 
@@ -19,7 +19,8 @@ class Crawler:
         return video_urls
 
 if __name__ == '__main__':
-    file = open("crawler.json", "r")
+    file = open("reddit.json", "r")
     info = json.load(file)
     file.close()
     crawler = Crawler("InterdimensionalCable", info["id"], info["secret"], info["agent"])
+    print(crawler.fetch_urls())
