@@ -363,3 +363,5 @@ fabric.properties
 .history
 
 # End of https://www.gitignore.io/api/node,flask,python,pycharm,visualstudiocode
+*.json
+/.idea
