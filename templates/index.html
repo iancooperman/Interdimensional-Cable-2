@@ -5,14 +5,13 @@
     <title>Interdimensional Cable</title>
 </head>
 <body>
-    {% for url in urls %}
-        <div><a href="{{ url }}">{{ url }}</a></div>
-    {% endfor %}
+    <iframe id="ytplayer" type="text/html" width="640" height="360" frameborder="0" src="#"></iframe>
 </body>
+
 <script type="text/javascript" src="static/scripts/idc.js"></script>
+
 <script type="text/javascript">
 init({{ urls | safe}});
-
 </script>
 
 </html>
