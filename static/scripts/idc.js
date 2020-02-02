@@ -1,11 +1,20 @@
-var urls;
-var embeded_youtube_player;
+var IDs;
+var embededYoutubePlayer;
+var videoNum;
+var totalVideos;
 
-function init(video_urls) {
-    urls = video_urls;
-    embeded_youtube_player = document.getElementById("ytplayer");
+function setVideo(videoNumber) {
+    embededYoutubePlayer.src = IDs[videoNumber];
+    videoNum = videoNumber;
 }
 
-embeded_youtube_player.onload = function() {
-    embeded_youtube_player.src = urls[0];
+function loadFirstVideo() {
+    setVideo(0);
+}
+
+function init(videoIDs) {
+    IDs = videoIDs;
+    totalVideos = IDs.length;
+    embededYoutubePlayer = document.getElementById("ytplayer");
+    embededYoutubePlayer.onload = loadFirstVideo();
 }
