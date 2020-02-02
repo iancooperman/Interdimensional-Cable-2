@@ -13,7 +13,7 @@ class Crawler:
         video_urls = []
         for submission in self._subreddit.hot(limit=100):
             url = submission.url
-            if re.match("https:\/\/www\.youtube\.com\/watch", url):
+            if re.match(r"https:\/\/www\.youtube\.com\/watch", url):
                 video_urls.append(url)
 
         return video_urls
