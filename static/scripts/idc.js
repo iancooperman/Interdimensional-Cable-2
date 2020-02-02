@@ -1,39 +1,42 @@
-var IDs;
-var embededYoutubePlayer;
-var nextButton;
-var prevButton;
+let IDs;
 
-
-var videoNum;
-var totalVideos;
+let videoNum;
+let totalVideos;
 
 function setVideo(videoNumber) {
-    embededYoutubePlayer.src = IDs[videoNumber];
+    const player = document.getElementById("ytplayer");
+    player.src = IDs[videoNumber];
     videoNum = videoNumber;
 }
 
 function nextVideo() {
+    console.log("Pressed");
     videoNum++;
     setVideo(videoNum % totalVideos);
+    return false;
 }
 
 function previousVideo() {
     videoNum--;
     setVideo(videoNum % totalVideos);
+    return false;
 }
 
 function loadFirstVideo() {
     setVideo(0);
+    return false;
 }
 
 function init(videoIDs) {
     IDs = videoIDs;
     totalVideos = IDs.length;
-    embededYoutubePlayer = document.getElementById("ytplayer");
-    embededYoutubePlayer.onload = loadFirstVideo();
+    const embededYoutubePlayer = document.getElementById("ytplayer");
+    embededYoutubePlayer.onload = loadFirstVideo;
 
-    prevButton = document.getElementById("prev-button");
-    nextButton = document.getElementById("next-button");
-    prevButton.onclick = previousVideo();
-    nextButton.onclick = nextVideo()
+    const prevButton = document.getElementById("prev-button");
+    const nextButton = document.getElementById("next-button");
+    console.log("Called?");
+    prevButton.addEventListener("click", previousVideo);
+    nextButton.addEventListener("click", nextVideo);
+
 }

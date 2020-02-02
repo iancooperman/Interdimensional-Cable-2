@@ -20,7 +20,6 @@ def index():
         match = id_pattern.match(url)
         if match:
             v_id = match.group(1)
-            print(v_id)
             video_ids.append(r"https://youtube.com/embed/" + v_id)
 
 
